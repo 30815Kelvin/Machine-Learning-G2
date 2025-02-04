@@ -72,13 +72,24 @@ mse_lon = mean_squared_error(y_test_lon, y_pred_lon)
 print(f"Mean Squared Error for Latitude Shift Prediction: {mse_lat}")
 print(f"Mean Squared Error for Longitude Shift Prediction: {mse_lon}")
 
-# Visualization - Compare actual vs predicted shifts
-plt.figure(figsize=(10, 5))
-plt.scatter(y_test_lat, y_pred_lat, alpha=0.5, label="Latitude Shift", color="blue")
-plt.scatter(y_test_lon, y_pred_lon, alpha=0.5, label="Longitude Shift", color="red")
-plt.axline((0, 0), slope=1, color="black", linestyle="--")  # y = x reference line
-plt.xlabel("Actual Shift")
-plt.ylabel("Predicted Shift")
-plt.legend()
-plt.title("Actual vs Predicted Hurricane Track Shifts")
+
+plt.figure(figsize=(12, 5))
+
+# Latitude
+plt.subplot(1, 2, 1)  # 1 row, 2 columns, 1st plot
+plt.scatter(y_test_lat, y_pred_lat, alpha=0.5, color="blue")
+plt.axline((0, 0), slope=1, color="black", linestyle="--")  # Reference y = x line
+plt.xlabel("Actual Latitude Shift")
+plt.ylabel("Predicted Latitude Shift")
+plt.title("Latitude Shift: Actual vs Predicted")
+
+# Longitude
+plt.subplot(1, 2, 2)  # 1 row, 2 columns, 2nd plot
+plt.scatter(y_test_lon, y_pred_lon, alpha=0.5, color="red")
+plt.axline((0, 0), slope=1, color="black", linestyle="--")  # Reference y = x line
+plt.xlabel("Actual Longitude Shift")
+plt.ylabel("Predicted Longitude Shift")
+plt.title("Longitude Shift: Actual vs Predicted")
+
+plt.tight_layout()
 plt.show()
