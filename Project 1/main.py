@@ -7,7 +7,7 @@ from sklearn.metrics import mean_squared_error
 import matplotlib.pyplot as plt
 
 # Load the NetCDF file
-file_path = "data/NA_data.nc"
+file_path = "NA_data.nc"
 ds = xr.open_dataset(file_path)
 
 # Extract relevant variables
