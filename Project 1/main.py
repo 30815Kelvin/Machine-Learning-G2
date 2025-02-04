@@ -5,6 +5,8 @@ import xgboost as xgb
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
 import matplotlib.pyplot as plt
+from sklearn.model_selection import RandomizedSearchCV
+
 
 # Load the NetCDF file
 file_path = "NA_data.nc"
@@ -91,5 +93,21 @@ plt.xlabel("Actual Longitude Shift")
 plt.ylabel("Predicted Longitude Shift")
 plt.title("Longitude Shift: Actual vs Predicted")
 
+# Define hyperparameter grid
+param_grid = {
+    'learning_rate': [0.01, 0.05, 0.1, 0.2],
+    'max_depth': [3, 4, 5, 6, 7],
+    'n_estimators': [50, 100, 200, 300],
+    'subsample': [0.6, 0.8, 1.0],
+    'colsample_bytree': [0.5, 0.7, 1.0],
+    'min_child_weight': [1, 3, 5, 7]
+}
+
+# Perform Randomized Grid Search
+random_search = RandomizedSearchCV(estimator=xgb_model, param_distributions=param_grid, n_iter=50, cv=3, scoring='neg_mean_squared_error', verbose=1, random_state=42)
+random_search.fit(X_train, y_train_lat)
+
+# Best parameters
+print("Best Hyperparameters:", random_search.best_params_)
 plt.tight_layout()
 plt.show()
