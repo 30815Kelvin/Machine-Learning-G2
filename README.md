@@ -1,10 +1,9 @@
 # Machine-Learning-G2
-Sample project README statement.
 
-Project xxx
+Hurricane Track Prediction with xgboost
 
 Team members: Kefeng Shi, Kihyun Jye, Zhi Wang
 
-Summary: In this project, we developed a new method and improved the classification accuracy for images of cats and dogs to 99.9%
+Summary: In this project, we tried to develop a model that integrates time-dependent hurricane trajectory predictions with ENSO-based frequency analysis to provide deeper insights into climate-driven hurricane behavior.
 
-[Contribution Statement] AB, CD, EF and GH designed the study. AB and CD developed baseline classification model for evaluation. EF and GH explored feature engineering for improving the baseline model. AB, EF and GH discussed and designed the model evaluation protocol. CD carried out the computation for model evaluation. All team members contributed to the GitHub repository and prepared the presentation. All team members approve our work presented in our GitHub repository including this contribution statement.
+[Contribution Statement] Zhi, Kihyun, Kefeng discussed together and then designed the study. In the coding part Kihyun contributes to the ENSO analysis part, the written part of the data story, developing and merging the code for all three team members. Kefeng and Zhi contributes to the xgboost regression model on the lat/lon prediction and training the model by adding temporal features and Randomized Grid Search. All team members contributed to the GitHub repository and prepared the presentation. All team members approve our work presented in our GitHub repository including this contribution statement.
